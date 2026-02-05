@@ -11,7 +11,37 @@
 3.  **Human-in-the-Loop**: Seamless workflow for human reviewers to approve, edit, or reject AI-generated content.
 4.  **Explainability**: RAG-based answers with citation to specific source documents to prevent hallucinations.
 
+<<<<<<< HEAD
 ## 🚀 Key Features
+=======
+```
+┌─────────────┐
+│   User      │
+└──────┬──────┘
+       │
+       ▼
+┌─────────────────────────────────────┐
+│      FastAPI Application            │
+│  ┌───────────────────────────────┐  │
+│  │   POST /prompt                │  │
+│  │   GET /audit/{id}             │  │
+│  │   POST /review/{id}           │  │
+│  └───────────────────────────────┘  │
+└──────┬──────────────────────┬───────┘
+       │                      │
+       ▼                      ▼
+┌─────────────┐        ┌─────────────┐
+│   Chroma    │        │  Supabase   │
+│ Vector Store│        │  PostgreSQL │
+└─────────────┘        └─────────────┘
+       │
+       ▼
+┌─────────────┐
+│   Gemini    │
+│     LLM     │
+└─────────────┘
+```
+>>>>>>> 77ef2168a8211767bdfeeac14f59f8c8f266cdea
 
 - **Retrieval-Augmented Generation (RAG)**: Grounded answers using local ChromaDB and Google Gemini embeddings.
 - **Dual-Language Support**: Fully localized interface in **Indonesian** and **English**.
@@ -21,7 +51,13 @@
 - **Chat Management**: Pin, rename, and delete conversation history with ease.
 - **Responsive Design**: Modern, mobile-friendly UI with dark mode aesthetic.
 
+<<<<<<< HEAD
 ## 🛠️ Tech Stack
+=======
+- Python 3.10+
+- Gemini API key
+- Supabase account (free tier works)
+>>>>>>> 77ef2168a8211767bdfeeac14f59f8c8f266cdea
 
 ### Frontend
 
