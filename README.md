@@ -2,12 +2,9 @@
 
 **Nirnaya** is a comprehensive Responsible AI platform designed to ensure governance, auditability, and human oversight in Generative AI workflows. Built for the Hackathon 2026, it addresses the critical need for "explainable and controllable AI" in enterprise environments.
 
-<<<<<<< HEAD
-[Nirnaya Platform]
-(frontend/public/logo.png)
-=======
-![Nirnaya Platform](app/images/nirnaya.svg)
->>>>>>> a80b92ed8b9058a2a63312af2402f8c554157f44
+# <<<<<<< HEAD
+
+> > > > > > > a80b92ed8b9058a2a63312af2402f8c554157f44
 
 ## 🌟 Core Pillars
 
@@ -17,8 +14,11 @@
 4.  **Explainability**: RAG-based answers with citation to specific source documents to prevent hallucinations.
 
 <<<<<<< HEAD
+
 ## 🚀 Key Features
+
 =======
+
 ```
 ┌─────────────┐
 │   User      │
@@ -46,7 +46,8 @@
 │     LLM     │
 └─────────────┘
 ```
->>>>>>> 77ef2168a8211767bdfeeac14f59f8c8f266cdea
+
+> > > > > > > 77ef2168a8211767bdfeeac14f59f8c8f266cdea
 
 - **Retrieval-Augmented Generation (RAG)**: Grounded answers using local ChromaDB and Google Gemini embeddings.
 - **Dual-Language Support**: Fully localized interface in **Indonesian** and **English**.
@@ -57,12 +58,15 @@
 - **Responsive Design**: Modern, mobile-friendly UI with dark mode aesthetic.
 
 <<<<<<< HEAD
+
 ## 🛠️ Tech Stack
+
 =======
+
 - Python 3.10+
 - Gemini API key
 - Supabase account (free tier works)
->>>>>>> 77ef2168a8211767bdfeeac14f59f8c8f266cdea
+  > > > > > > > 77ef2168a8211767bdfeeac14f59f8c8f266cdea
 
 ### Frontend
 
