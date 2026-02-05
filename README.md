@@ -35,7 +35,7 @@ A hackathon MVP for a Cloud-Native Responsible Generative AI Platform focused on
        │
        ▼
 ┌─────────────┐
-│   OpenAI    │
+│   Gemini    │
 │     LLM     │
 └─────────────┘
 ```
@@ -43,7 +43,7 @@ A hackathon MVP for a Cloud-Native Responsible Generative AI Platform focused on
 ## 📋 Prerequisites
 
 - Python 3.10+
-- OpenAI API key
+- Gemini API key
 - Supabase account (free tier works)
 
 ## 🚀 Quick Start
