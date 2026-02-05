@@ -2,10 +2,6 @@
 
 **Nirnaya** is a comprehensive Responsible AI platform designed to ensure governance, auditability, and human oversight in Generative AI workflows. Built for the Hackathon 2026, it addresses the critical need for "explainable and controllable AI" in enterprise environments.
 
-# <<<<<<< HEAD
-
-> > > > > > > a80b92ed8b9058a2a63312af2402f8c554157f44
-
 ## 🌟 Core Pillars
 
 1.  **Governance**: Enforce strict policies (PII, toxicity, sensitive topics) on every prompt and response.
