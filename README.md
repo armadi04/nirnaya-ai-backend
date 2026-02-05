@@ -1,17 +1,19 @@
-# Cloud-Native Responsible Generative AI Platform
+# Nirnaya - Cloud-Native Responsible Generative AI Platform
 
-A hackathon MVP for a Cloud-Native Responsible Generative AI Platform focused on governance, auditability, and human-in-the-loop review.
+**Nirnaya** is a comprehensive Responsible AI platform designed to ensure governance, auditability, and human oversight in Generative AI workflows. Built for the Hackathon 2026, it addresses the critical need for "explainable and controllable AI" in enterprise environments.
 
-## 🎯 Features
+![Nirnaya Platform](frontend/public/logo.png)
 
-- **RAG Pipeline**: Retrieval-Augmented Generation using LangChain and Chroma
-- **Responsible AI**: Policy enforcement with keyword-based violation detection
-- **Human-in-the-Loop**: Review workflow for AI-generated responses
-- **Audit Logging**: Complete traceability in Supabase for compliance
-- **Explainability**: Source documents and confidence scores for transparency
+## 🌟 Core Pillars
 
-## 🏗️ Architecture
+1.  **Governance**: Enforce strict policies (PII, toxicity, sensitive topics) on every prompt and response.
+2.  **Auditability**: Complete traceability of every interaction, including source documents, confidence scores, and policy checks.
+3.  **Human-in-the-Loop**: Seamless workflow for human reviewers to approve, edit, or reject AI-generated content.
+4.  **Explainability**: RAG-based answers with citation to specific source documents to prevent hallucinations.
 
+<<<<<<< HEAD
+## 🚀 Key Features
+=======
 ```
 ┌─────────────┐
 │   User      │
@@ -39,247 +41,135 @@ A hackathon MVP for a Cloud-Native Responsible Generative AI Platform focused on
 │     LLM     │
 └─────────────┘
 ```
+>>>>>>> 77ef2168a8211767bdfeeac14f59f8c8f266cdea
 
-## 📋 Prerequisites
+- **Retrieval-Augmented Generation (RAG)**: Grounded answers using local ChromaDB and Google Gemini embeddings.
+- **Dual-Language Support**: Fully localized interface in **Indonesian** and **English**.
+- **Smart Analytics**: Dashboard for monitoring AI acceptance rates, top keywords, and feedback distribution.
+- **Context-Aware Suggestions**: Dynamic prompt suggestions based on user intent (Governance, Audit, RAG).
+- **Policy Enforcement**: Real-time detection of sensitive data and policy violations.
+- **Chat Management**: Pin, rename, and delete conversation history with ease.
+- **Responsive Design**: Modern, mobile-friendly UI with dark mode aesthetic.
 
+<<<<<<< HEAD
+## 🛠️ Tech Stack
+=======
 - Python 3.10+
 - Gemini API key
 - Supabase account (free tier works)
+>>>>>>> 77ef2168a8211767bdfeeac14f59f8c8f266cdea
 
-## 🚀 Quick Start
+### Frontend
 
-### 1. Clone and Setup
+- **Framework**: React 19 + Vite
+- **Styling**: Tailwind CSS v4
+- **Icons**: Lucide React
+- **Routing**: React Router DOM v7
+- **State Management**: React Context API
+
+### Backend
+
+- **API Framework**: FastAPI (Python 3.10+)
+- **AI Orchestration**: LangChain
+- **LLM**: Google Gemini Pro
+- **Vector Store**: ChromaDB (Local Persistence)
+- **Database**: Supabase (PostgreSQL) for Audit Logs
+
+## � Prerequisites
+
+- **Node.js** (v18 or higher)
+- **Python** (v3.10 or higher)
+- **Supabase Account** (for database)
+- **Google Gemini API Key**
+
+## ⚡ Quick Start
+
+### 1. Clone the Repository
 
 ```bash
-cd cloud-native
-python -m venv venv
-
-# Windows
-venv\Scripts\activate
-
-# Linux/Mac
-source venv/bin/activate
+git clone https://github.com/yourusername/nirnaya.git
+cd nirnaya
 ```
 
-### 2. Install Dependencies
+### 2. Environment Setup
 
-```bash
-pip install -r requirements.txt
-```
-
-### 3. Configure Environment
-
-Copy `.env.example` to `.env` and fill in your credentials:
-
-```bash
-cp .env.example .env
-```
-
-Edit `.env`:
+Create a `.env` file in the root directory:
 
 ```env
-OPENAI_API_KEY=sk-your-openai-key-here
-SUPABASE_URL=https://your-project.supabase.co
-SUPABASE_KEY=your-supabase-service-key-here
+# AI Configuration
+GOOGLE_API_KEY=your_gemini_api_key_here
+
+# Database Configuration
+SUPABASE_URL=your_supabase_url
+SUPABASE_KEY=your_supabase_service_role_key
+
+# Vector Store
+CHROMA_PERSIST_DIRECTORY=./chroma_db
+CHROMA_COLLECTION_NAME=nirnaya_collection
+
+# App Settings
+DEBUG=True
+LOG_LEVEL=INFO
 ```
 
-### 4. Setup Supabase Database
+### 3. Backend Setup
 
-Go to your Supabase project → SQL Editor → Run the migration:
+```bash
+# Create virtual environment
+python -m venv venv
 
-```sql
--- Copy and run the SQL from app/db/migrations.sql
+# Activate (Windows)
+venv\Scripts\activate
+# Activate (Mac/Linux)
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run Database Migration (Supabase)
+# Execute content of database_migration.sql in Supabase SQL Editor
+```
+
+### 4. Frontend Setup
+
+```bash
+cd frontend
+npm install
+cd ..
 ```
 
 ### 5. Run the Application
 
-```bash
-python -m uvicorn app.main:app --reload
-```
-
-The API will be available at: `http://localhost:8000`
-
-API Documentation: `http://localhost:8000/docs`
-
-## 📚 API Usage
-
-### Submit a Prompt
+This project uses `concurrently` to run both servers with one command:
 
 ```bash
-curl -X POST http://localhost:8000/prompt \
-  -H "Content-Type: application/json" \
-  -d '{
-    "prompt": "What is machine learning?",
-    "user_id": "user_123"
-  }'
+npm run dev
 ```
 
-Response:
+- **Frontend**: http://localhost:5173
+- **Backend API**: http://localhost:8000
+- **API Docs**: http://localhost:8000/docs
 
-```json
-{
-  "audit_id": "uuid-here",
-  "answer": "Machine learning is...",
-  "sources": [
-    {
-      "content": "Machine learning is a subset of AI...",
-      "metadata": { "source": "ml_basics.pdf", "page": 1 },
-      "similarity_score": 0.89
-    }
-  ],
-  "confidence_score": 0.85,
-  "policy_flag": false,
-  "policy_violations": [],
-  "status": "pending"
-}
-```
+## 🐳 Deployment Note
 
-### Get Audit Log
+### Frontend
 
-```bash
-curl http://localhost:8000/audit/{audit_id}
-```
+The frontend can be easily deployed to **Vercel**, **Netlify**, or **Cloudflare Pages**.
 
-### Review Response
+- Root Directory: `frontend`
+- Build Command: `npm run build`
+- Output Directory: `dist`
 
-```bash
-curl -X POST http://localhost:8000/review/{audit_id} \
-  -H "Content-Type: application/json" \
-  -d '{
-    "decision": "approved",
-    "reviewer_id": "reviewer_1",
-    "comments": "Looks good"
-  }'
-```
+### Backend
 
-## 🔒 Responsible AI Features
-
-### Policy Checks
-
-The system automatically checks for:
-
-- **PII Detection**: SSN, credit card numbers, emails
-- **Harmful Content**: Violence, hate speech
-- **Sensitive Topics**: Medical, legal, financial advice
-
-### Confidence Scoring
-
-- Based on vector similarity scores
-- Range: 0.0 to 1.0
-- Helps reviewers prioritize low-confidence responses
-
-### Audit Trail
-
-Every interaction is logged with:
-
-- User ID and prompt
-- Generated response
-- Source documents
-- Confidence score
-- Policy flags
-- Review status and reviewer
-
-## 📁 Project Structure
-
-```
-cloud-native/
-├── app/
-│   ├── main.py              # FastAPI application
-│   ├── config.py            # Configuration management
-│   ├── api/
-│   │   ├── prompt.py        # POST /prompt endpoint
-│   │   ├── audit.py         # GET /audit/{id} endpoint
-│   │   └── review.py        # POST /review/{id} endpoint
-│   ├── services/
-│   │   ├── rag_service.py   # RAG pipeline
-│   │   ├── policy_service.py # Policy enforcement
-│   │   └── audit_service.py  # Audit logging
-│   ├── db/
-│   │   ├── supabase.py      # Database client
-│   │   └── migrations.sql   # Database schema
-│   ├── schemas/
-│   │   └── __init__.py      # Pydantic models
-│   └── utils/
-│       ├── logger.py        # Logging configuration
-│       └── vector_store.py  # Vector store setup
-├── requirements.txt
-├── .env.example
-├── Dockerfile
-├── docker-compose.yml
-└── README.md
-```
-
-## 🐳 Docker Deployment
-
-```bash
-# Build and run
-docker-compose up --build
-
-# Run in background
-docker-compose up -d
-
-# Stop
-docker-compose down
-```
-
-## 🧪 Testing
-
-### Test RAG Pipeline
-
-```bash
-curl -X POST http://localhost:8000/prompt \
-  -H "Content-Type: application/json" \
-  -d '{"prompt": "What is deep learning?", "user_id": "test"}'
-```
-
-### Test Policy Violation
-
-```bash
-curl -X POST http://localhost:8000/prompt \
-  -H "Content-Type: application/json" \
-  -d '{"prompt": "My SSN is 123-45-6789", "user_id": "test"}'
-```
-
-## 🔧 Configuration
-
-Key settings in `.env`:
-
-- `RETRIEVAL_TOP_K`: Number of documents to retrieve (default: 3)
-- `SIMILARITY_THRESHOLD`: Minimum similarity for retrieval (default: 0.7)
-- `CONFIDENCE_THRESHOLD`: Threshold for flagging low confidence (default: 0.6)
-- `ENABLE_POLICY_CHECK`: Enable/disable policy checks (default: True)
-
-## 📊 Governance Dashboard
-
-View audit logs in Supabase:
-
-1. Go to Supabase Dashboard
-2. Navigate to Table Editor
-3. Select `audit_logs` table
-4. Filter by status, policy_flag, etc.
-
-## 🚧 Future Enhancements
-
-- [ ] Advanced policy rules with ML-based detection
-- [ ] Multi-model support (HuggingFace, Anthropic)
-- [ ] Real-time review dashboard
-- [ ] Batch processing for multiple prompts
-- [ ] Export audit logs for compliance reporting
-- [ ] Fine-grained access control
-- [ ] Webhook notifications for reviews
-
-## 📝 License
-
-MIT License - feel free to use for your hackathon!
+Because the backend uses **local ChromaDB** (SQLite based), it requires a persistent filesystem.
+**DO NOT deploy the backend to Vercel/AWS Lambda.**
+Recommended platforms: **Railway**, **Render**, **Fly.io**, or **Google Cloud Run** using Docker.
 
 ## 🤝 Contributing
 
-This is a hackathon MVP. Feel free to extend and improve!
+This project was built for the 2026 Cloud Native Hackathon. Contributions are welcome!
 
-## 📧 Support
+## 📄 License
 
-For issues or questions, check the API docs at `/docs` or review the code comments.
-
----
-
-Built with ❤️ for responsible AI development
+MIT License.
